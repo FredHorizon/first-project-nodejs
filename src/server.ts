@@ -1,8 +1,9 @@
 import express from 'express';
+import routes from './routes';
 
 const app = express();
 
-app.get('/', (req, res) => res.json({ message: 'Teste ok 4' }));
+app.use(routes); // routes torna-se um middleware agora
 
 app.listen(3333, () => {
   console.log('Server Started on port 3333.');
