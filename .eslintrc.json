@@ -22,7 +22,12 @@
         "ts": "never"
       }
     ],
-    "max-len": "off"
+    "max-len": "off",
+    "implicit-arrow-linebreak": "off",
+    "comma-dangle": "off",
+    "function-paren-newline": "off",
+    "quotes": "off",
+    "operator-linebreak": "off"
   },
   "settings": {
     "import/resolver": {
