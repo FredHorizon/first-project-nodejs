@@ -1,8 +1,8 @@
 // Serviço responsável pela CRIAÇÃO do Agendamento
 
-import { startOfHour } from "date-fns";
-import Appointment from "../models/Appointment";
-import AppointmentsRepository from "../repositories/AppointementsRepository";
+import { startOfHour } from 'date-fns';
+import Appointment from '../models/Appointment';
+import AppointmentsRepository from '../repositories/AppointementsRepository';
 
 /**
  * [x] Recebimento das informações
@@ -33,7 +33,7 @@ class CreateAppointmentService {
       this.appointmentsRepository.findByDate(appointmentDate);
 
     if (findAppointmentInSameDate) {
-      throw Error("This appointment is already booked");
+      throw Error('This appointment is already booked');
     }
 
     const appointment = this.appointmentsRepository.create({

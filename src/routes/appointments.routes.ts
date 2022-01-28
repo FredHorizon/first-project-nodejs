@@ -1,25 +1,25 @@
-import { Router } from "express";
-import { parseISO } from "date-fns";
-import AppointmentsRepository from "../repositories/AppointementsRepository";
-import CreateAppointmentService from "../services/CreateAppointmentService";
+import { Router } from 'express';
+import { parseISO } from 'date-fns';
+import AppointmentsRepository from '../repositories/AppointementsRepository';
+import CreateAppointmentService from '../services/CreateAppointmentService';
 
 const appointmentsRouter = Router();
 const appointmentsRepository = new AppointmentsRepository();
 
-appointmentsRouter.get("/", (req, res) => {
+appointmentsRouter.get('/', (req, res) => {
   const appointments = appointmentsRepository.all();
 
   return res.json(appointments);
 });
 
-appointmentsRouter.post("/", (req, res) => {
+appointmentsRouter.post('/', (req, res) => {
   try {
     const { provider, date } = req.body;
 
     const parsedDate = parseISO(date);
 
     const createAppointment = new CreateAppointmentService(
-      appointmentsRepository
+      appointmentsRepository,
     );
 
     const appointment = createAppointment.execute({
